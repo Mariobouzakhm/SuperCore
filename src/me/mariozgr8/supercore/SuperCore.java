@@ -9,8 +9,10 @@ import me.mariozgr8.supercore.Listeners.StatisticsEvents;
 import me.mariozgr8.supercore.Listeners.WarpsEvents;
 import me.mariozgr8.supercore.api.Glow;
 import me.mariozgr8.supercore.commands.DelWarpCommand;
+import me.mariozgr8.supercore.commands.FeedCommand;
 import me.mariozgr8.supercore.commands.FlyCommand;
 import me.mariozgr8.supercore.commands.GodCommand;
+import me.mariozgr8.supercore.commands.HealCommand;
 import me.mariozgr8.supercore.commands.SetSpawnCommand;
 import me.mariozgr8.supercore.commands.SetWarpCommand;
 import me.mariozgr8.supercore.commands.SpawnCommand;
@@ -91,14 +93,22 @@ public class SuperCore extends JavaPlugin {
 	}
 	
 	public void registerCommands() {
+		//Basic Commands
 		this.getCommand("fly").setExecutor(new FlyCommand(this));
 		this.getCommand("god").setExecutor(new GodCommand(this));
+		this.getCommand("feed").setExecutor(new FeedCommand(this));
+		this.getCommand("heal").setExecutor(new HealCommand(this));
+		
+		//Statistics Commands
 		this.getCommand("statistics").setExecutor(new StatsCommand(this));
+		
+		//Warps Commands
 		this.getCommand("setwarp").setExecutor(new SetWarpCommand(this));
 		this.getCommand("warp").setExecutor(new WarpCommand(this));
 		this.getCommand("setspawn").setExecutor(new SetSpawnCommand(this));
 		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
 		this.getCommand("delwarp").setExecutor(new DelWarpCommand(this));
+		
 	}
 	public void registerEvents() {
 		Bukkit.getServer().getPluginManager().registerEvents(new RegisterEvent(), this);

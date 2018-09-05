@@ -8,6 +8,12 @@ public class PermissionManager {
 	public String godPermission = "supercore.god";
 	public String gofOthersPermission = "supercore.god.others";
 	
+	public String feedPermission = "supercore.feed";
+	public String feedOthersPermission = "supercore.feed.others";
+	
+	public String healPermission = "supercore.heal";
+	public String healOthersPermission = "supercore.heal.others";
+	
 	public String vanishPermission = "supercore.vanish";
 	public String vanihsOthersPermission = "supercore.vanish.others";
 	

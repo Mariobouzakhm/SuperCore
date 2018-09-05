@@ -20,6 +20,9 @@ public class MessageManager {
 	private String godModeEnabled;
 	private String godModeDisabled;
 	
+	private String fedMessage;
+	private String healedMessage;
+	
 	private String setSpawnMessage;
 	private String spawnMessage;
 	
@@ -55,6 +58,9 @@ public class MessageManager {
 		
 		godModeEnabled = s.getMessageConfig().getString("messages.god-enabled");
 		godModeDisabled = s.getMessageConfig().getString("messages.god-disabled");
+		
+		healedMessage = s.getMessageConfig().getString("messages.healed");
+		fedMessage = s.getMessageConfig().getString("messages.fed");
 		
 		setSpawnMessage = s.getMessageConfig().getString("messages.set-spawn");
 		spawnMessage = s.getMessageConfig().getString("messages.spawn");
@@ -109,6 +115,12 @@ public class MessageManager {
 	}
 	public String getGodModeDisabled() {
 		return godModeDisabled;
+	}
+	public String getFedMessage() {
+		return fedMessage;
+	}
+	public String getHealedMessage() {
+		return healedMessage;
 	}
 	public String getSetSpawnMessage() {
 		return setSpawnMessage;

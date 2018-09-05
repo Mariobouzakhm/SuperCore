@@ -35,6 +35,14 @@ commands:
     usage: /delwarp [args]
     description: Delete warps
     aliases: [sdelwarp]
+  feed:
+    usage: /feed [args]
+    description: Feed player
+    aliases: [sfeed]
+  heal:
+    usage: /heal [args]
+    description: Heal player
+    aliases: [sheal]
 
 permissions:
   supercore.fly:
@@ -73,3 +81,15 @@ permissions:
   suprecore.delwarp:
     default: OP
     description: Allow /delwarp [args]
+  supercore.feed:
+    default: OP
+    description: Allow /feed
+  supercore.feed.others:
+    default: OP
+    description: Allow /feed [args]
+  supercore.heal:
+    default: OP
+    description: Allow /heal
+  supercore.heal.others:
+    default: OP
+    description: Allow /heal [args]

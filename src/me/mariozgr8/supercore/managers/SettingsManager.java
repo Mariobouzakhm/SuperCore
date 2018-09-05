@@ -97,6 +97,12 @@ public class SettingsManager {
 		if(messageConfig.get("messages.warp-deleted") == null) {
 			messageConfig.set("messages.warp-deleted", "&aSuccessfully deleted warp !");
 		}
+		if(messageConfig.get("messages.fed") == null) {
+			messageConfig.set("messages.fed", "&6You have been fed");
+		}
+		if(messageConfig.get("messages.healed") == null) {
+			messageConfig.set("messages.healed", "&6You have been healed");
+		}
 		
 		this.saveMessageConfig();
 	}

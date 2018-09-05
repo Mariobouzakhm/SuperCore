@@ -11,6 +11,9 @@ messages:
   
   god-enabled: "&6God &aEnabled &6for %player%"
   god-disabled: "&6God &aDisabled &6for %player%"
+  
+  healed: "&6You have been healed"
+  fed: "&6You have been fed"
 
   set-spawn: "&6Spawn has been set to your current location !"
   spawn: "&6Teleporting to spawn."
