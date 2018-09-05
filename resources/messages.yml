@@ -1,0 +1,25 @@
+messages:
+  prefix: '&bSC: '
+  player-only: '&cThis command can only be executed by a player !'
+  wrong-args: '&cWrong Argument ! Please refer to /help for more informations !'
+  no-permission: "&4You don't have enought pemrmission to perform this command !"
+  player-not-found: "&cCannot find the player online !"
+  no-permission-lore: "&cNo Permission"
+  
+  fly-enabled: "&6Fly &aEnabled &6for %player%"
+  fly-disabled: "&6Fly &4Disabled &6for %player%"
+  
+  god-enabled: "&6God &aEnabled &6for %player%"
+  god-disabled: "&6God &aDisabled &6for %player%"
+
+  set-spawn: "&6Spawn has been set to your current location !"
+  spawn: "&6Teleporting to spawn."
+  
+  invalid-warp-material: "&cYou need to hold an item in your hand while creating a warp"
+  invalid-warp-name: "&cWarp name cannot contain any special character"
+  duplicate-warp-name: "&cWarp with this name already exist"
+  warp-created: "&aSuccessfully created warp !"
+  warp-deleted: "&aSuccessfully deleted warp !"
+  warp-no-exist: "&cCannot find warp with provided name !"
+  warping: "&6Teleporting to %warp%"
+  

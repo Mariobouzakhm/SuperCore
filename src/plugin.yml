@@ -1,0 +1,75 @@
+name: SuperCore
+main: me.mariozgr8.supercore.SuperCore
+version: 1.0
+
+commands:
+  fly:
+    usage: /fly [args]
+    description: Toggle Fly Mode
+    aliases: [sfly]
+  god:
+    usage: /god [args]
+    description: Toggle God Mode
+    aliases: [sgod]
+  statistics:
+    usage: /statistics [args]
+    description: Open stats menu
+    aliases: [stats, sstats, sstatistics]
+  setspawn:
+    usage: /setspawn
+    description: Change spawn location
+    aliases: [ssetspawn]
+  spawn:
+    usage: /spawn [args]
+    description: Teleport player to spawn
+    aliases: [sspawn]
+  setwarp:
+    usage: /setwarp [args]
+    description: Create new warp location
+    aliases: [ssetwarp]
+  warp:
+    usage: /warp [args]
+    description: Teleport player to warp
+    aliases: [swarp]
+  delwarp:
+    usage: /delwarp [args]
+    description: Delete warps
+    aliases: [sdelwarp]
+
+permissions:
+  supercore.fly:
+    default: OP
+    description: Allow /fly
+  supercore.fly.others:
+    default: OP
+    description: Allow /fly [name]
+  supercore.god:
+    default: OP
+    description: Allow /god
+  supercore.god.others:
+    default: OP
+    description: Allow /god [name]
+  supercore.statistics:
+    default: OP
+    description: Allow /stats
+  supercore.statistics.others:
+    default: OP
+    description: Allow /stats [name]
+  supercore.setspawn:
+    default: OP
+    description: Allow /setspawn 
+  supercore.spawn:
+    default: OP
+    description: Allow /spawn
+  supercore.spawn.others:
+    default: OP
+    description: Allow /spawn [args]
+  supercore.setwarp:
+    default: OP
+    description: Allow /setwarp [args]
+  supercore.warp:
+    default: OP
+    description: Allow /warp [args]
+  suprecore.delwarp:
+    default: OP
+    description: Allow /delwarp [args]

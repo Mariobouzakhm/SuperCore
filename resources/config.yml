@@ -1,0 +1,16 @@
+inventory:
+  statistics:
+    name: "&6Statistics Inventory"
+    playtime-item:
+      name: "&cPlaytime statistics"
+    mobs-item:
+      name: "&cMobs statistics"
+    blocks-item:
+      name: "&cBlocks statistics"
+    damage-item:
+      name: "&cDamage statistics"
+  warps:
+    name: "&6Warps Inventory"
+    warp-item:
+      name: "&c%warp_name% Warp"
+    
