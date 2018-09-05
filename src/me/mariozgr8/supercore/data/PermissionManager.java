@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.managers;
+package me.mariozgr8.supercore.data;
 
 public class PermissionManager {
 	//Basic Command 

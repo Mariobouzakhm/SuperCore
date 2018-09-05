@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.commands;
+package me.mariozgr8.supercore.commands.core;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -7,8 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.mariozgr8.supercore.SuperCore;
-import me.mariozgr8.supercore.managers.MessageManager;
-import me.mariozgr8.supercore.managers.PermissionManager;
+import me.mariozgr8.supercore.data.MessageManager;
+import me.mariozgr8.supercore.data.PermissionManager;
 
 public class HealCommand implements CommandExecutor {
 	private MessageManager chat;

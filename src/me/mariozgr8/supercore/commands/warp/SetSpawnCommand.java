@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.commands;
+package me.mariozgr8.supercore.commands.warp;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -6,9 +6,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.mariozgr8.supercore.SuperCore;
-import me.mariozgr8.supercore.managers.MessageManager;
-import me.mariozgr8.supercore.managers.PermissionManager;
-import me.mariozgr8.supercore.managers.WarpsManager;
+import me.mariozgr8.supercore.data.MessageManager;
+import me.mariozgr8.supercore.data.PermissionManager;
+import me.mariozgr8.supercore.warps.WarpsManager;
 
 public class SetSpawnCommand implements CommandExecutor {
 	private MessageManager chat;

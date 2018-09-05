@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.managers;
+package me.mariozgr8.supercore.warps;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -14,7 +14,8 @@ import org.bukkit.inventory.ItemStack;
 
 import me.mariozgr8.supercore.SuperCore;
 import me.mariozgr8.supercore.api.ItemStackBuilder;
-import me.mariozgr8.supercore.objects.WarpEntry;
+import me.mariozgr8.supercore.data.MessageManager;
+import me.mariozgr8.supercore.data.SettingsManager;
 
 public class WarpsManager {
 	private SuperCore sc;

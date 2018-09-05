@@ -1,8 +1,8 @@
-package me.mariozgr8.supercore.objects;
+package me.mariozgr8.supercore.stats;
 
 import java.util.UUID;
 
-import me.mariozgr8.supercore.managers.SettingsManager;
+import me.mariozgr8.supercore.data.SettingsManager;
 
 public class StatisticsEntry {
 	private static SettingsManager settings = SettingsManager.getInstance();

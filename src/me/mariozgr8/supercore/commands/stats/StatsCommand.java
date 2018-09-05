@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.commands;
+package me.mariozgr8.supercore.commands.stats;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -7,11 +7,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.mariozgr8.supercore.SuperCore;
-import me.mariozgr8.supercore.managers.MessageManager;
-import me.mariozgr8.supercore.managers.PermissionManager;
-import me.mariozgr8.supercore.managers.SPlayerManager;
-import me.mariozgr8.supercore.managers.StatisticsManager;
-import me.mariozgr8.supercore.objects.SPlayer;
+import me.mariozgr8.supercore.data.MessageManager;
+import me.mariozgr8.supercore.data.PermissionManager;
+import me.mariozgr8.supercore.stats.StatisticsManager;
+import me.mariozgr8.supercore.users.SPlayer;
+import me.mariozgr8.supercore.users.SPlayerManager;
 
 public class StatsCommand implements CommandExecutor {
 	private SuperCore sc;

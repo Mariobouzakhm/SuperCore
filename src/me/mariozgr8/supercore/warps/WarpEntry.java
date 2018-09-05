@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.objects;
+package me.mariozgr8.supercore.warps;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

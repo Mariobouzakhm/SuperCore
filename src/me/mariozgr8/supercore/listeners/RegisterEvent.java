@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.Listeners;
+package me.mariozgr8.supercore.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import me.mariozgr8.supercore.SuperCore;
-import me.mariozgr8.supercore.managers.SPlayerManager;
+import me.mariozgr8.supercore.users.SPlayerManager;
 
 public class RegisterEvent implements Listener {
 	private SPlayerManager manager = SuperCore.getInstance().getManager();

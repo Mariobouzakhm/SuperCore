@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.managers;
+package me.mariozgr8.supercore.stats;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -16,8 +16,8 @@ import me.mariozgr8.supercore.api.DurabilityEnum;
 import me.mariozgr8.supercore.api.Glow;
 import me.mariozgr8.supercore.api.ItemStackBuilder;
 import me.mariozgr8.supercore.api.Methods;
-import me.mariozgr8.supercore.objects.SPlayer;
-import me.mariozgr8.supercore.objects.StatisticsEntry;
+import me.mariozgr8.supercore.data.MessageManager;
+import me.mariozgr8.supercore.users.SPlayer;
 
 public class StatisticsManager {	
 	private SuperCore sc;

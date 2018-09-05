@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.managers;
+package me.mariozgr8.supercore.users;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.bukkit.entity.Player;
 
 import me.mariozgr8.supercore.SuperCore;
-import me.mariozgr8.supercore.objects.SPlayer;
 
 public class SPlayerManager {
 	private SuperCore sc = SuperCore.getInstance();

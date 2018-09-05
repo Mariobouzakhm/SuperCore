@@ -1,9 +1,11 @@
-package me.mariozgr8.supercore.objects;
+package me.mariozgr8.supercore.users;
 
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
+import me.mariozgr8.supercore.stats.StatisticsEntry;
 
 public class SPlayer {
 	private UUID uuid;

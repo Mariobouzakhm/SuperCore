@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.managers;
+package me.mariozgr8.supercore.data;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

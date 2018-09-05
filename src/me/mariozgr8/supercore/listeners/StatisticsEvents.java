@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.Listeners;
+package me.mariozgr8.supercore.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,9 +12,9 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
 import me.mariozgr8.supercore.SuperCore;
-import me.mariozgr8.supercore.managers.MessageManager;
-import me.mariozgr8.supercore.managers.SPlayerManager;
-import me.mariozgr8.supercore.objects.SPlayer;
+import me.mariozgr8.supercore.data.MessageManager;
+import me.mariozgr8.supercore.users.SPlayer;
+import me.mariozgr8.supercore.users.SPlayerManager;
 
 public class StatisticsEvents implements Listener {
 	private SuperCore sc;
