@@ -17,6 +17,10 @@ public class PermissionManager {
 	public String vanishPermission = "supercore.vanish";
 	public String vanihsOthersPermission = "supercore.vanish.others";
 	
+	public String invseePermission = "supercore.invsee";
+	public String invseeModifyPermission = "supercore.invsee.modify";
+	public String offlineInvSeePermission = "supercore.invsee.offline";
+	
 	//Statistics Permissions
 	public String statsPermission = "supercore.statistics";
 	public String statsOtherPermission = "supercore.statistics.others";

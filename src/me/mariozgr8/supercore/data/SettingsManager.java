@@ -27,6 +27,9 @@ public class SettingsManager {
 	private FileConfiguration locationsConfig;
 	private File locationsFile;
 	
+	private FileConfiguration playersConfig;
+	private File playersFile;
+	
 	public void setup(Plugin p) {
 		if(!p.getDataFolder().exists()) {
 			p.getDataFolder().mkdir();
@@ -65,6 +68,18 @@ public class SettingsManager {
 			}
 		}
 		locationsConfig = YamlConfiguration.loadConfiguration(locationsFile);
+		
+		playersFile = new File(p.getDataFolder(), "playersdata.yml");
+		if(!playersFile.exists()) {
+			try {
+				playersFile.createNewFile();
+			}
+			catch(IOException ex) {
+				Bukkit.getServer().getLogger().severe("Could not create playersdata.yml");
+			}	
+		}
+		playersConfig = YamlConfiguration.loadConfiguration(playersFile);
+		
 	}
 	public void updateMessageConfig() {
 		if(messageConfig.get("messages.set-spawn") == null) {
@@ -174,5 +189,20 @@ public class SettingsManager {
 	}
 	public void reloadLocationsConfig() {
 		locationsConfig = YamlConfiguration.loadConfiguration(locationsFile);
+	}
+	//Methods concerning the playersdata.yml
+	public FileConfiguration getPlayersDataConfig() {
+		return playersConfig;
+	}
+	public void savePlayersDataConfig() {
+		try {
+			playersConfig.save(playersFile);
+		}
+		catch(IOException ex) {
+			Bukkit.getServer().getLogger().severe("Could not save playersdata.yml");
+		}
+	}
+	public void reloadPlayersDataConfig() {
+		playersConfig = YamlConfiguration.loadConfiguration(playersFile);
 	}
 }

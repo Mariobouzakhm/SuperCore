@@ -1,4 +1,4 @@
-package me.mariozgr8.supercore.commands.core;
+package me.mariozgr8.supercore.commands.warp;
 
 import org.bukkit.Material;
 import org.bukkit.command.Command;

@@ -9,10 +9,11 @@ import me.mariozgr8.supercore.commands.core.FeedCommand;
 import me.mariozgr8.supercore.commands.core.FlyCommand;
 import me.mariozgr8.supercore.commands.core.GodCommand;
 import me.mariozgr8.supercore.commands.core.HealCommand;
-import me.mariozgr8.supercore.commands.core.SetWarpCommand;
+import me.mariozgr8.supercore.commands.core.InvSeeCommand;
 import me.mariozgr8.supercore.commands.stats.StatsCommand;
 import me.mariozgr8.supercore.commands.warp.DelWarpCommand;
 import me.mariozgr8.supercore.commands.warp.SetSpawnCommand;
+import me.mariozgr8.supercore.commands.warp.SetWarpCommand;
 import me.mariozgr8.supercore.commands.warp.SpawnCommand;
 import me.mariozgr8.supercore.commands.warp.WarpCommand;
 import me.mariozgr8.supercore.data.MessageManager;
@@ -98,6 +99,7 @@ public class SuperCore extends JavaPlugin {
 		this.getCommand("god").setExecutor(new GodCommand(this));
 		this.getCommand("feed").setExecutor(new FeedCommand(this));
 		this.getCommand("heal").setExecutor(new HealCommand(this));
+		this.getCommand("invsee").setExecutor(new InvSeeCommand(this));
 		
 		//Statistics Commands
 		this.getCommand("statistics").setExecutor(new StatsCommand(this));

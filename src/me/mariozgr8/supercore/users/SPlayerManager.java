@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 
 import me.mariozgr8.supercore.SuperCore;
 
@@ -19,12 +20,23 @@ public class SPlayerManager {
 		//Add the player StatisticsEntry to the StatisticsEntry List
 		sc.getStats().addEntry(sp.getStats());
 		
+		//Load Player Inventory If Modified
+		Inventory inv = sp.loadInventory();
+		if(inv != null) {
+			for(int i = 0; i<p.getInventory().getSize(); i++) {
+				p.getInventory().setItem(i, inv.getItem(i));
+			}
+		}
+		
 		//Add the SPlayer to the splayers list
 		addPlayer(sp);
 		
 	}
 	public void unregisterPlayer(Player p) {
 		SPlayer sp = splayers.get(p.getUniqueId());
+		
+		//Save Player Invetory to config
+		sp.saveInventory();
 		
 		//Save and Remove the stats entry from the list
 		sp.getStats().saveStats();
