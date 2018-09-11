@@ -43,6 +43,10 @@ commands:
     usage: /heal [args]
     description: Heal player
     aliases: [sheal]
+  invsee:
+    usage: /invsee [args]
+    description: Invsee offline/online players
+    aliases: [sinvsee]
 
 permissions:
   supercore.fly:
@@ -93,3 +97,12 @@ permissions:
   supercore.heal.others:
     default: OP
     description: Allow /heal [args]
+  supercore.invsee:
+    default: OP
+    description: Allow players to use /invsee 
+  supercore.invsee.modify:
+    default: OP
+    description: Allow players to modify players inventory while in /invsee
+  supercore.invsee.offline:
+    default: OP
+    description: Allow playerrs to access/modify players invetnroy while they are offline

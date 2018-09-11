@@ -9,14 +9,17 @@ import org.bukkit.entity.Player;
 import me.mariozgr8.supercore.SuperCore;
 import me.mariozgr8.supercore.data.MessageManager;
 import me.mariozgr8.supercore.data.PermissionManager;
+import me.mariozgr8.supercore.users.SPlayerManager;
 
 public class InvSeeCommand implements CommandExecutor {
 	private MessageManager chat;
 	private PermissionManager perms;
+	private SPlayerManager manager;
 	
 	public InvSeeCommand(SuperCore sc) {
 		this.chat = sc.getMessages();
 		this.perms = sc.getPerms();
+		this.manager = sc.getManager();
 	}
 
 	@Override
@@ -43,9 +46,11 @@ public class InvSeeCommand implements CommandExecutor {
 				}
 				else {
 					
+					return true;
 				}
 			}
 			p.openInventory(target.getInventory());
+			manager.addPlayer(p, target);
 			return true;
 		}
 		return false;

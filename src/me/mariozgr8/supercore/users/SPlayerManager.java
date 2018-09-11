@@ -13,6 +13,7 @@ public class SPlayerManager {
 	
 	//HashMap Containing the players and their corresponding SPlayer
 	private HashMap<UUID, SPlayer> splayers = new HashMap<UUID, SPlayer>();
+	private HashMap<Player, Player> inInvsee = new HashMap<Player, Player>();
 	
 	public void registerPlayer(Player p) {
 		SPlayer sp = new SPlayer(p.getUniqueId());
@@ -27,7 +28,6 @@ public class SPlayerManager {
 				p.getInventory().setItem(i, inv.getItem(i));
 			}
 		}
-		
 		//Add the SPlayer to the splayers list
 		addPlayer(sp);
 		
@@ -45,7 +45,8 @@ public class SPlayerManager {
 		//Remove the SPLayer from the list
 		removePlayer(sp);
 	}
-	
+
+	//Methods relating to the splayers HashMap
 	public void addPlayer(SPlayer sp) {
 		splayers.put(sp.getUUID(), sp);
 	}
@@ -59,6 +60,24 @@ public class SPlayerManager {
 			}
 		}
 		return null;
+	}
+	//Methods relating to the inInvsee hashmap
+	public void addPlayer(Player p, Player target) {
+		inInvsee.put(p, target);
+	}
+	public void removePlayer(Player p) {
+		if(inInvsee.containsKey(p)) {
+			inInvsee.remove(p);
+		}
+	}
+	public Player getTarget(Player p) {
+		if(inInvsee.containsKey(p)) {
+			return inInvsee.get(p);
+		}
+		return null;
+	}
+	public boolean containsUser(Player p) {
+		return inInvsee.containsKey(p);
 	}
 
 }
