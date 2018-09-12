@@ -2,6 +2,8 @@ package me.mariozgr8.supercore;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.mariozgr8.supercore.api.Glow;
@@ -9,15 +11,17 @@ import me.mariozgr8.supercore.commands.core.FeedCommand;
 import me.mariozgr8.supercore.commands.core.FlyCommand;
 import me.mariozgr8.supercore.commands.core.GodCommand;
 import me.mariozgr8.supercore.commands.core.HealCommand;
-import me.mariozgr8.supercore.commands.core.SetWarpCommand;
+import me.mariozgr8.supercore.commands.core.InvSeeCommand;
 import me.mariozgr8.supercore.commands.stats.StatsCommand;
 import me.mariozgr8.supercore.commands.warp.DelWarpCommand;
 import me.mariozgr8.supercore.commands.warp.SetSpawnCommand;
+import me.mariozgr8.supercore.commands.warp.SetWarpCommand;
 import me.mariozgr8.supercore.commands.warp.SpawnCommand;
 import me.mariozgr8.supercore.commands.warp.WarpCommand;
 import me.mariozgr8.supercore.data.MessageManager;
 import me.mariozgr8.supercore.data.PermissionManager;
 import me.mariozgr8.supercore.data.SettingsManager;
+import me.mariozgr8.supercore.listeners.InvseeEvents;
 import me.mariozgr8.supercore.listeners.RegisterEvent;
 import me.mariozgr8.supercore.listeners.StatisticsEvents;
 import me.mariozgr8.supercore.listeners.WarpsEvents;
@@ -71,7 +75,12 @@ public class SuperCore extends JavaPlugin {
 		
 		//Register the Server Events and Commands
 		registerCommands();
-		registerEvents();
+		registerEvents(
+				new RegisterEvent(),
+				new StatisticsEvents(this), 
+				new WarpsEvents(this), 
+				new InvseeEvents(this)
+		);
 		
 		//Register all the players already on the server to the plug-in and load their stats in case of a reload
 		for(Player p: Bukkit.getServer().getOnlinePlayers()) {
@@ -98,6 +107,7 @@ public class SuperCore extends JavaPlugin {
 		this.getCommand("god").setExecutor(new GodCommand(this));
 		this.getCommand("feed").setExecutor(new FeedCommand(this));
 		this.getCommand("heal").setExecutor(new HealCommand(this));
+		this.getCommand("invsee").setExecutor(new InvSeeCommand(this));
 		
 		//Statistics Commands
 		this.getCommand("statistics").setExecutor(new StatsCommand(this));
@@ -110,10 +120,11 @@ public class SuperCore extends JavaPlugin {
 		this.getCommand("delwarp").setExecutor(new DelWarpCommand(this));
 		
 	}
-	public void registerEvents() {
-		Bukkit.getServer().getPluginManager().registerEvents(new RegisterEvent(), this);
-		Bukkit.getServer().getPluginManager().registerEvents(new StatisticsEvents(this), this);
-		Bukkit.getServer().getPluginManager().registerEvents(new WarpsEvents(this), this);
+	private void registerEvents(Listener... listener) {
+		PluginManager manager = Bukkit.getServer().getPluginManager();
+		for(Listener list: listener) {
+			manager.registerEvents(list, this);
+		}
 	}
 	public void loadConfig() {
 		this.getConfig().options().copyDefaults(true);

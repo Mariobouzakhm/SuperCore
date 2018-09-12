@@ -5,6 +5,7 @@ messages:
   no-permission: "&4You don't have enought pemrmission to perform this command !"
   player-not-found: "&cCannot find the player online !"
   no-permission-lore: "&cNo Permission"
+  player-not-found-offline: "&cPlayer has never played on the server !"
   
   fly-enabled: "&6Fly &aEnabled &6for %player%"
   fly-disabled: "&6Fly &4Disabled &6for %player%"
