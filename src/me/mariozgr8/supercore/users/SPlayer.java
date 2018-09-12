@@ -58,24 +58,28 @@ public class SPlayer {
 		return stats;
 	}
 	public void saveInventory() {
-		String path = uuid+".inventory.";
+		String path = uuid.toString()+".inventory.";
 		for(int i = 0; i<p.getInventory().getSize(); i++) {
-			settings.getPlayersDataConfig().set(path+i, p.getInventory().getItem(i));
+			if(p.getInventory().getItem(i) != null) {	
+				settings.getPlayersDataConfig().set(path+i, p.getInventory().getItem(i));
+			}
+			else {
+				settings.getPlayersDataConfig().set(path+i, null);
+			}
 		}
 		settings.savePlayersDataConfig();
 	}
-	public void toggleInvModify() {
-		boolean toggle = settings.getPlayersDataConfig().getBoolean(uuid+".inv-modified");
-		settings.getPlayersDataConfig().set(uuid+".inv-modified", !toggle);
+	public void toggleInvModify(boolean flag) {
+		settings.getPlayersDataConfig().set(uuid+".inv-modified", flag);
 		settings.savePlayersDataConfig();
 	}
 	public Inventory loadInventory() {
-		boolean flag = settings.getPlayersDataConfig().getBoolean(uuid+".inv-modified");
+		boolean flag = settings.getPlayersDataConfig().getBoolean(uuid.toString()+".inv-modified");
 		Inventory inv = null;
 		if(flag) {
 			inv = Bukkit.getServer().createInventory(null, 9*4, p.getName()+"'s Inventory");
-			String path = p.getName()+".inventory.";
-			for(int i = 0; i<p.getInventory().getSize(); i++) {
+			String path = p.getUniqueId()+".inventory.";
+			for(int i = 0; i < inv.getSize() - 1; i++) {
 				ItemStack it = settings.getPlayersDataConfig().getItemStack(path+i);
 				inv.setItem(i, it);
 			}

@@ -13,6 +13,7 @@ public class MessageManager {
 	private String noPerms;
 	private String playerOffline;
 	private String noPermsLore;
+	private String playerNotFoundOffline;
 	
 	private String flyModeEnabled;
 	private String flyModeDisabled;
@@ -52,6 +53,7 @@ public class MessageManager {
 		noPerms = s.getMessageConfig().getString("messages.no-permission");
 		playerOffline = s.getMessageConfig().getString("messages.player-not-found");
 		noPermsLore = s.getMessageConfig().getString("messages.no-permission-lore");
+		playerNotFoundOffline = s.getMessageConfig().getString("messages.player-not-found-offline");
 		
 		flyModeEnabled = s.getMessageConfig().getString("messages.fly-enabled");
 		flyModeDisabled = s.getMessageConfig().getString("messages.fly-disabled");
@@ -100,6 +102,9 @@ public class MessageManager {
 	}
 	public String getPlayerOffline() {
 		return playerOffline;
+	}
+	public String getPlayerNorFoundOffline() {
+		return playerNotFoundOffline;
 	}
 	public String getNoPermsLore() {
 		return noPermsLore;

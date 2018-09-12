@@ -35,6 +35,12 @@ public class InvseeEvents implements Listener {
 				e.setCancelled(true);
 			}
 		}
+		if(manager.containsOfflineUser(p)) {
+			if(p.hasPermission(perms.invseeModifyPermission)) return;
+			else {
+				e.setCancelled(true);
+			}
+		}
 	}
 	@EventHandler
 	public void onCloseEvent(InventoryCloseEvent e) {
@@ -46,7 +52,6 @@ public class InvseeEvents implements Listener {
 			try {
 				if(inv.equals(manager.getTarget(p).getInventory())) {
 					manager.removePlayer(p);
-					p.sendMessage("Successfully removed from the hashmap !");
 				}
 			}
 			catch(NullPointerException ex) {
@@ -54,6 +59,11 @@ public class InvseeEvents implements Listener {
 				p.sendMessage(ChatColor.RED+"Error Occured please contact an admin !");
 				manager.removePlayer(p);
 			}
+		}
+		if(manager.containsOfflineUser(p)) {
+			manager.saveBasedOnUUID(manager.getTargetUUID(p), inv);
+			manager.toggleModifiedInv(manager.getTargetUUID(p));
+			manager.removeOfflinePlayer(p);
 		}
 	}
 

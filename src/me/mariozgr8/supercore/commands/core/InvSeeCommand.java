@@ -1,5 +1,7 @@
 package me.mariozgr8.supercore.commands.core;
 
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -45,7 +47,13 @@ public class InvSeeCommand implements CommandExecutor {
 					return true;
 				}
 				else {
-					
+					UUID uuid = manager.validateUUID(args[0]);
+					if(uuid == null) {
+						chat.sendMessageToPlayer(chat.getPlayerNorFoundOffline(), p);
+						return true;
+					}
+					p.openInventory(manager.loadBasedOnUUID(uuid));
+					manager.addOfflinePlayer(p, uuid);
 					return true;
 				}
 			}

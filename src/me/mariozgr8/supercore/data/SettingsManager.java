@@ -118,6 +118,9 @@ public class SettingsManager {
 		if(messageConfig.get("messages.healed") == null) {
 			messageConfig.set("messages.healed", "&6You have been healed");
 		}
+		if(messageConfig.get("messsges.player-not-found-offline") == null) {
+			messageConfig.set("messages.player-not-found-offline", "&cPlayer has never played on the server !");
+		}
 		
 		this.saveMessageConfig();
 	}
