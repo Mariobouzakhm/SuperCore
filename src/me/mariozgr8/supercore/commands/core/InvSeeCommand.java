@@ -8,20 +8,20 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import me.mariozgr8.supercore.CoreMethods;
 import me.mariozgr8.supercore.SuperCore;
 import me.mariozgr8.supercore.data.MessageManager;
 import me.mariozgr8.supercore.data.PermissionManager;
-import me.mariozgr8.supercore.users.SPlayerManager;
 
 public class InvSeeCommand implements CommandExecutor {
 	private MessageManager chat;
 	private PermissionManager perms;
-	private SPlayerManager manager;
+	private CoreMethods core;
 	
 	public InvSeeCommand(SuperCore sc) {
 		this.chat = sc.getMessages();
 		this.perms = sc.getPerms();
-		this.manager = sc.getManager();
+		this.core = sc.getCore();
 	}
 
 	@Override
@@ -47,18 +47,18 @@ public class InvSeeCommand implements CommandExecutor {
 					return true;
 				}
 				else {
-					UUID uuid = manager.validateUUID(args[0]);
+					UUID uuid = core.validateUUID(args[0]);
 					if(uuid == null) {
 						chat.sendMessageToPlayer(chat.getPlayerNorFoundOffline(), p);
 						return true;
 					}
-					p.openInventory(manager.loadBasedOnUUID(uuid));
-					manager.addOfflinePlayer(p, uuid);
+					p.openInventory(core.loadBasedOnUUID(uuid));
+					core.addOfflinePlayer(p, uuid);
 					return true;
 				}
 			}
 			p.openInventory(target.getInventory());
-			manager.addPlayer(p, target);
+			core.addPlayer(p, target);
 			return true;
 		}
 		return false;

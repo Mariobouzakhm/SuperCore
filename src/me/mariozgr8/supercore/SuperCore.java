@@ -41,6 +41,7 @@ public class SuperCore extends JavaPlugin {
 	private StatisticsManager stats;
 	private SPlayerManager splayers;
 	private WarpsManager warps;
+	private CoreMethods core;
 	
 	@Override
 	public void onEnable() {
@@ -62,6 +63,9 @@ public class SuperCore extends JavaPlugin {
 		
 		//Setup the plugin's permissions
 		perms = new PermissionManager();
+		
+		//Setup the plugin's specific methods
+		core = new CoreMethods();
 		
 		//Setup the splayers Handler
 		splayers = new SPlayerManager();
@@ -146,5 +150,8 @@ public class SuperCore extends JavaPlugin {
 	}
 	public WarpsManager getWarps() {
 		return warps;
+	}
+	public CoreMethods getCore() {
+		return core;
 	}
 }

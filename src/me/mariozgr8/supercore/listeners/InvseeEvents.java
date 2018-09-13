@@ -8,17 +8,17 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 
+import me.mariozgr8.supercore.CoreMethods;
 import me.mariozgr8.supercore.SuperCore;
 import me.mariozgr8.supercore.data.PermissionManager;
-import me.mariozgr8.supercore.users.SPlayerManager;
 
 public class InvseeEvents implements Listener {
-	private SPlayerManager manager;
 	private PermissionManager perms;
+	private CoreMethods core;
 	
-	public InvseeEvents(SuperCore core) {
-		this.manager = core.getManager();
-		this.perms = core.getPerms();
+	public InvseeEvents(SuperCore sc) {
+		this.perms = sc.getPerms();
+		this.core = sc.getCore();
 	}
 	
 	@EventHandler
@@ -29,13 +29,13 @@ public class InvseeEvents implements Listener {
 		Player p = (Player) e.getWhoClicked();
 		Inventory inv = e.getClickedInventory();
 		
-		if(manager.containsUser(p) && manager.getTarget(p).getInventory().equals(inv)) {
+		if(core.containsUser(p) && core.getTarget(p).getInventory().equals(inv)) {
 			if(p.hasPermission(perms.invseeModifyPermission)) return;
 			else {
 				e.setCancelled(true);
 			}
 		}
-		if(manager.containsOfflineUser(p)) {
+		if(core.containsOfflineUser(p)) {
 			if(p.hasPermission(perms.invseeModifyPermission)) return;
 			else {
 				e.setCancelled(true);
@@ -48,22 +48,22 @@ public class InvseeEvents implements Listener {
 		
 		Player p = (Player) e.getPlayer();
 		Inventory inv = e.getInventory();
-		if(manager.containsUser(p)) {	
+		if(core.containsUser(p)) {	
 			try {
-				if(inv.equals(manager.getTarget(p).getInventory())) {
-					manager.removePlayer(p);
+				if(inv.equals(core.getTarget(p).getInventory())) {
+					core.removePlayer(p);
 				}
 			}
 			catch(NullPointerException ex) {
 				ex.printStackTrace();
 				p.sendMessage(ChatColor.RED+"Error Occured please contact an admin !");
-				manager.removePlayer(p);
+				core.removePlayer(p);
 			}
 		}
-		if(manager.containsOfflineUser(p)) {
-			manager.saveBasedOnUUID(manager.getTargetUUID(p), inv);
-			manager.toggleModifiedInv(manager.getTargetUUID(p));
-			manager.removeOfflinePlayer(p);
+		if(core.containsOfflineUser(p)) {
+			core.saveBasedOnUUID(core.getTargetUUID(p), inv);
+			core.toggleModifiedInv(core.getTargetUUID(p));
+			core.removeOfflinePlayer(p);
 		}
 	}
 
