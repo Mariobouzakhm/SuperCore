@@ -33,4 +33,25 @@ public class PermissionManager {
 	public String setWarpPermission = "supercore.setwarp";
 	public String warpPermission = "supercore.warp";
 	public String delWarpPermission = "supercore.delwarp";
+	
+	//Home Permission
+	public String homePermission = "supercore.home";
+	public String homeOthersPermission = "supercore.home.others";
+	public String sethomePermission = "supercore.sethome";
+	public String delhomePermission = "supercore.delhome";
+	
+	public String unlimitedHomePermission = "supercore.home.max";
+	public String oneHomePermission = "supercore.home.one";
+	public String twoHomePermission = "supercore.home.two";
+	public String threeHomePermission = "supercore.home.three";
+	public String fourHomePermission = "supercore.home.four";
+	public String fiveHomePermission = "supercore.home.five";
+	public String sixHomePermission = "supercore.home.six";
+	public String sevenHomePermission = "supercore.home.seven";
+	public String eightHomePermission = "supercore.home.eight";
+	public String nineHomePermission = "supercore.home.nine";
+	public String tenHomePermission = "supercore.home.ten";
+	public String fifteenHomePermission = "supercore.home.fifteen";
+	public String twentyHomePermission = "supercore.home.twenty";
+	public String twentyfiveHomePermission = "supercore.home.twentyfive";
 }
