@@ -102,5 +102,19 @@ public class HomeManager {
 		}
 		return homes;
 	}
+	public HomeEntry getOfflinePlayerHome(OfflinePlayer off, String name) {
+		HomeEntry home = null;
+		UUID uuid = off.getUniqueId();
+		String path = uuid.toString()+".homes."+name;
+		if(settings.getPlayersDataConfig().get(path) != null) {
+			double x = settings.getPlayersDataConfig().getDouble(path+".X");
+			double y = settings.getPlayersDataConfig().getDouble(path+".Y");
+			double z = settings.getPlayersDataConfig().getDouble(path+".Z");
+			World w = Bukkit.getServer().getWorld(settings.getPlayersDataConfig().getString(path+".World"));
+			
+			home = new HomeEntry(name, new Location(w, x, y, z));
+		}
+		return home;
+	}
 
 }

@@ -32,6 +32,7 @@ public class HomesCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(!(sender instanceof Player)) {
 			sender.sendMessage(chat.getPlayerOnly());
+			return true;
 		}
 		Player p = (Player) sender;
 		if(cmd.getName().equalsIgnoreCase("homes")) {

@@ -2,8 +2,6 @@ package me.mariozgr8.supercore.homes;
 
 import org.bukkit.Location;
 
-import me.mariozgr8.supercore.users.SPlayer;
-
 public class HomeEntry {
 	private String name;
 	private Location loc;

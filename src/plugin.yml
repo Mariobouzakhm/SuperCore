@@ -59,6 +59,10 @@ commands:
     usage: /homes [args]
     description: List player homes
     aliases: [shomes]
+  home:
+    usage: /home [args]
+    description: Teleport to player home
+    aliases: [shome]
 
 permissions:
   supercore.fly:
@@ -130,3 +134,9 @@ permissions:
   supercore.homes.others:
     default: OP
     description: Allow player to list other player's homes
+  supercore.home:
+    default: OP
+    description: Allow players to teleport to their home
+  supercore.home.others:
+    default: OP
+    description: Allow players to teleport to others homes

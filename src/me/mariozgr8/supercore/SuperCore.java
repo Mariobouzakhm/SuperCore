@@ -135,7 +135,7 @@ public class SuperCore extends JavaPlugin {
 		//Homes Command
 		this.getCommand("sethome").setExecutor(new SetHomeCommand(this));
 		this.getCommand("delhome").setExecutor(new DelHomeCommand(this));
-//		this.getCommand("home").setExecutor(new HomeCommand(this));
+		this.getCommand("home").setExecutor(new HomeCommand(this));
 		this.getCommand("homes").setExecutor(new HomesCommand(this));
 		
 		
