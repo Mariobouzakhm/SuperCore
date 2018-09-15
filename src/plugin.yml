@@ -47,6 +47,18 @@ commands:
     usage: /invsee [args]
     description: Invsee offline/online players
     aliases: [sinvsee]
+  sethome:
+    usage: /sethome [args]
+    description: Create a new player home
+    aliases: [ssethome]
+  delhome:
+    usage: /delhome [args]
+    description: Delete a player home
+    aliases: [sdelhome]
+  homes:
+    usage: /homes [args]
+    description: List player homes
+    aliases: [shomes]
 
 permissions:
   supercore.fly:
@@ -106,3 +118,15 @@ permissions:
   supercore.invsee.offline:
     default: OP
     description: Allow playerrs to access/modify players invetnroy while they are offline
+  supercore.sethome:
+    default: OP
+    description: Allow player to create homes
+  supercore.delhome:
+    default: OP
+    description: Allow player to delete homes
+  supercore.homes:
+    default: OP
+    description: Allow player to list their homes
+  supercore.homes.others:
+    default: OP
+    description: Allow player to list other player's homes

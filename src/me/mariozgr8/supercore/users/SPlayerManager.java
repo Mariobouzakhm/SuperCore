@@ -20,6 +20,9 @@ public class SPlayerManager {
 		//Add the player StatisticsEntry to the StatisticsEntry List
 		sc.getStats().addEntry(sp.getStats());
 		
+		//Load Player Homes
+		sp.loadHomes();
+		
 		//Load Player Inventory If Modified
 		Inventory inv = sp.loadInventory();
 		if(inv != null) {
@@ -35,6 +38,9 @@ public class SPlayerManager {
 		
 		//Save Player Invetory to config
 		sp.saveInventory();
+		
+		//Load Player Homes
+		sp.saveHomes();
 		
 		//Save and Remove the stats entry from the list
 		sp.getStats().saveStats();

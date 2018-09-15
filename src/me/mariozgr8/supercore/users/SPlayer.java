@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -18,6 +20,9 @@ import me.mariozgr8.supercore.stats.StatisticsEntry;
  *
  */
 public class SPlayer {
+	/**
+	 * Instance of SettingsManager that contains the access to the server YamlConfiguration Files
+	 */
 	private static SettingsManager settings = SettingsManager.getInstance();
 	/**
 	 * UUID of SPlayer, Unique Id to each mincraft player
@@ -71,6 +76,46 @@ public class SPlayer {
 		return homes;
 	}
 	/**
+	 * @return number of set homes by the player
+	 */
+	public int getNumberOfHomes() {
+		if(homes.isEmpty()) {
+			return 0;
+		}
+		return homes.size();
+	}
+	/**
+	 * Method that save player home to playerdata.yml file when they exit the server
+	 */
+	public void saveHomes() {
+		if(!homes.isEmpty()) {
+			String path = uuid.toString()+".homes.";
+			for(HomeEntry home: homes) {
+				settings.getPlayersDataConfig().set(path+home.getName()+".X", home.getLocation().getX());
+				settings.getPlayersDataConfig().set(path+home.getName()+".Y", home.getLocation().getY());
+				settings.getPlayersDataConfig().set(path+home.getName()+".Z", home.getLocation().getZ());
+				settings.getPlayersDataConfig().set(path+home.getName()+".World", home.getLocation().getWorld().getName());
+			}
+			settings.savePlayersDataConfig();
+		}
+	}
+	/**
+	 * Method that load the list of player homes when they join the server 
+	 */
+	public void loadHomes() {
+		if(settings.getPlayersDataConfig().get(uuid.toString()+".homes") != null) {
+			String path = uuid.toString()+".homes.";
+			for(String name: settings.getPlayersDataConfig().getConfigurationSection(uuid.toString()+".homes").getKeys(false)) {
+				double x = settings.getPlayersDataConfig().getDouble(path+name+".X");
+				double y = settings.getPlayersDataConfig().getDouble(path+name+".Y");
+				double z = settings.getPlayersDataConfig().getDouble(path+name+".Z");
+				World w = Bukkit.getServer().getWorld(settings.getPlayersDataConfig().getString(path+name+".World"));
+				
+				homes.add(new HomeEntry(name, new Location(w, x, y, z)));
+			}
+		}
+	}
+	/**
 	 * @param name: String that represent the name of the home to be returned
 	 * @return HomeEntry if home with passed name exists, null otherwise 
 	 */
@@ -81,6 +126,37 @@ public class SPlayer {
 			}
 		}
 		return null;
+	}
+	/**
+	 * @param home represent the home to be added to the list
+	 * @return true if home was added, false if not.
+	 */
+	public boolean addHome(HomeEntry home) {
+		if(homes.contains(home)) {
+			return false;
+		}
+		homes.add(home);
+		return true;
+	}
+	/**
+	 * @param home represent the home to be removed from the lsit
+	 * @return true if home was successfully removed, false if not.
+	 */
+	public boolean removeHome(String name) {
+		HomeEntry home = this.returnHomeFromName(name);
+		if(home == null) {
+			return false;
+		}
+		homes.remove(home);
+		return true;
+	}
+	/** 
+	 * @param name represent the name of the home to be deleted
+	 */
+	public void deleteHome(String name) {
+		String path = uuid.toString()+".homes."+name;
+		settings.getPlayersDataConfig().set(path, null);
+		settings.savePlayersDataConfig();
 	}
 	/**
 	 * Method that file player inventory to playerdata.yml file

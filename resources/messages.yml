@@ -27,3 +27,9 @@ messages:
   warp-no-exist: "&cCannot find warp with provided name !"
   warping: "&6Teleporting to %warp%"
   
+  too-many-homes: "&cYou are not allowed to set more homes !"
+  home-no-exist" "&Cannot find home with provided name !"
+  home-created: "&aHome set to your location !"
+  home-deleted: "&cHome successfully deleted !"
+  
+  

@@ -1,15 +1,27 @@
 package me.mariozgr8.supercore.homes;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import me.mariozgr8.supercore.SuperCore;
 import me.mariozgr8.supercore.data.PermissionManager;
+import me.mariozgr8.supercore.data.SettingsManager;
 
 public class HomeManager {
 	private PermissionManager perms;
+
+	private SettingsManager settings;
 	
 	public HomeManager(SuperCore sc) {
 		perms = sc.getPerms();
+		settings = SettingsManager.getInstance();
 	}
 	
 	/**
@@ -63,6 +75,32 @@ public class HomeManager {
 		else {
 			return 0;
 		}
+	}
+	public String getHomesMessage(List<HomeEntry> homes) {
+		StringBuilder str = new StringBuilder();
+		str.append("&6Homes: ");
+		if(!homes.isEmpty()) {	
+			for(HomeEntry home: homes) {
+				str.append("&c"+home.getName()+", ");
+			}
+		}
+		return str.toString();
+	}
+	public List<HomeEntry> getOfflinePlayerHomes(OfflinePlayer off) {
+		List<HomeEntry> homes = new ArrayList<HomeEntry>();
+		UUID uuid = off.getUniqueId();
+		if(settings.getPlayersDataConfig().get(uuid.toString()+".homes") != null) {
+			String path = uuid.toString()+".homes.";
+			for(String name: settings.getPlayersDataConfig().getConfigurationSection(uuid.toString()+".homes").getKeys(false)) {
+				double x = settings.getPlayersDataConfig().getDouble(path+name+".X");
+				double y = settings.getPlayersDataConfig().getDouble(path+name+".Y");
+				double z = settings.getPlayersDataConfig().getDouble(path+name+".Z");
+				World w = Bukkit.getServer().getWorld(settings.getPlayersDataConfig().getString(path+name+".World"));
+				
+				homes.add(new HomeEntry(name, new Location(w, x, y, z)));
+			}
+		}
+		return homes;
 	}
 
 }

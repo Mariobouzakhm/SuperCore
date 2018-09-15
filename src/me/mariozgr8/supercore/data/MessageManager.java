@@ -35,6 +35,11 @@ public class MessageManager {
 	private String warpNoExist;
 	private String warping;
 	
+	private String tooManyHomes;
+	private String homeCreated;
+	private String homeNoExist;
+	private String homeDeleted;
+	
 	
 	//Config Settings
 	private String statisticsInvName;
@@ -74,6 +79,11 @@ public class MessageManager {
 		successfullyDeletedWarp = s.getMessageConfig().getString("messages.warp-deleted");
 		warpNoExist = s.getMessageConfig().getString("messages.warp-no-exist");
 		warping = s.getMessageConfig().getString("messages.warping");
+		
+		tooManyHomes = s.getMessageConfig().getString("messages.too-many-homes");
+		homeCreated = s.getMessageConfig().getString("messages.home-created");
+		homeNoExist = s.getMessageConfig().getString("messages.home-no-exist");
+		homeDeleted = s.getMessageConfig().getString("messages.home-deleted");
 		
 	}
 	public void setupConfig(Plugin p) {
@@ -153,6 +163,18 @@ public class MessageManager {
 	}
 	public String getWarping() {
 		return warping;
+	}
+	public String getTooManyHomes() {
+		return tooManyHomes;
+	}
+	public String getHomeCreated() {
+		return homeCreated;
+	}
+	public String getHomeNotExist() {
+		return homeNoExist;
+	}
+	public String getHomeDeleted() {
+		return homeDeleted;
 	}
 	//Config String Getters
 	public String getStatisticsInvName() {

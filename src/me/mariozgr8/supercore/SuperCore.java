@@ -12,6 +12,10 @@ import me.mariozgr8.supercore.commands.core.FlyCommand;
 import me.mariozgr8.supercore.commands.core.GodCommand;
 import me.mariozgr8.supercore.commands.core.HealCommand;
 import me.mariozgr8.supercore.commands.core.InvSeeCommand;
+import me.mariozgr8.supercore.commands.home.DelHomeCommand;
+import me.mariozgr8.supercore.commands.home.HomeCommand;
+import me.mariozgr8.supercore.commands.home.HomesCommand;
+import me.mariozgr8.supercore.commands.home.SetHomeCommand;
 import me.mariozgr8.supercore.commands.stats.StatsCommand;
 import me.mariozgr8.supercore.commands.warp.DelWarpCommand;
 import me.mariozgr8.supercore.commands.warp.SetSpawnCommand;
@@ -21,6 +25,7 @@ import me.mariozgr8.supercore.commands.warp.WarpCommand;
 import me.mariozgr8.supercore.data.MessageManager;
 import me.mariozgr8.supercore.data.PermissionManager;
 import me.mariozgr8.supercore.data.SettingsManager;
+import me.mariozgr8.supercore.homes.HomeManager;
 import me.mariozgr8.supercore.listeners.InvseeEvents;
 import me.mariozgr8.supercore.listeners.RegisterEvent;
 import me.mariozgr8.supercore.listeners.StatisticsEvents;
@@ -42,6 +47,7 @@ public class SuperCore extends JavaPlugin {
 	private SPlayerManager splayers;
 	private WarpsManager warps;
 	private CoreMethods core;
+	private HomeManager homes;
 	
 	@Override
 	public void onEnable() {
@@ -69,6 +75,9 @@ public class SuperCore extends JavaPlugin {
 		
 		//Setup the splayers Handler
 		splayers = new SPlayerManager();
+		
+		//Setup the homes Handler
+		homes = new HomeManager(this);
 		
 		//Setup the statistics Manager
 		stats = new StatisticsManager(this);
@@ -123,6 +132,13 @@ public class SuperCore extends JavaPlugin {
 		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
 		this.getCommand("delwarp").setExecutor(new DelWarpCommand(this));
 		
+		//Homes Command
+		this.getCommand("sethome").setExecutor(new SetHomeCommand(this));
+		this.getCommand("delhome").setExecutor(new DelHomeCommand(this));
+//		this.getCommand("home").setExecutor(new HomeCommand(this));
+		this.getCommand("homes").setExecutor(new HomesCommand(this));
+		
+		
 	}
 	private void registerEvents(Listener... listener) {
 		PluginManager manager = Bukkit.getServer().getPluginManager();
@@ -153,5 +169,8 @@ public class SuperCore extends JavaPlugin {
 	}
 	public CoreMethods getCore() {
 		return core;
+	}
+	public HomeManager getHomes() {
+		return homes;
 	}
 }

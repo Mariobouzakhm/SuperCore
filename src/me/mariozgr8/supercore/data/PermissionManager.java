@@ -36,7 +36,9 @@ public class PermissionManager {
 	
 	//Home Permission
 	public String homePermission = "supercore.home";
+	public String homesPermission = "supercore.homes";
 	public String homeOthersPermission = "supercore.home.others";
+	public String homesOthersPermission = "supercore.homes.others";
 	public String sethomePermission = "supercore.sethome";
 	public String delhomePermission = "supercore.delhome";
 	

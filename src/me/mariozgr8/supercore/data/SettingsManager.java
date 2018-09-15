@@ -121,6 +121,18 @@ public class SettingsManager {
 		if(messageConfig.get("messsges.player-not-found-offline") == null) {
 			messageConfig.set("messages.player-not-found-offline", "&cPlayer has never played on the server !");
 		}
+		if(messageConfig.get("messages.too-many-homes") == null) {
+			messageConfig.set("messages.too-many-homes", "&cYou are not allowed to set more homes !");
+		}
+		if(messageConfig.get("messages.home-created") == null) {
+			messageConfig.set("messages.home-created", "&aHome set to your location !");
+		}
+		if(messageConfig.get("messages.home-no-exist") == null) {
+			messageConfig.set("message.home-no-exist", "&Cannot find home with provided name !");
+		}
+		if(messageConfig.get("messages.home-deleted") == null) {
+			messageConfig.set("message.home-deleted", "&cHome successfully deleted !");
+		}
 		
 		this.saveMessageConfig();
 	}
