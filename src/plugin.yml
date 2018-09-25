@@ -63,6 +63,14 @@ commands:
     usage: /home [args]
     description: Teleport to player home
     aliases: [shome]
+  tp:
+    usage: /tp [args]
+    descripion: Teleport to a player's location
+    aliases: [stp]
+  tphere:
+    usahe: /tphere [args]
+    description: Teleport a player to sender's location
+    aliases: [stphere]
 
 permissions:
   supercore.fly:
@@ -140,3 +148,9 @@ permissions:
   supercore.home.others:
     default: OP
     description: Allow players to teleport to others homes
+  supercore.tp:
+    default: OP
+    description: Allow players to use /tp
+  supercore.tphere:
+    default: OP
+    description: Allow players to use /tphere

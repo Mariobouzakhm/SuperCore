@@ -21,6 +21,9 @@ public class PermissionManager {
 	public String invseeModifyPermission = "supercore.invsee.modify";
 	public String offlineInvSeePermission = "supercore.invsee.offline";
 	
+	public String tpPermission = "supercore.tp";
+	public String tpHerePermission = "supercore.tphere";
+	
 	//Statistics Permissions
 	public String statsPermission = "supercore.statistics";
 	public String statsOtherPermission = "supercore.statistics.others";

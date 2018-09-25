@@ -12,6 +12,8 @@ import me.mariozgr8.supercore.commands.core.FlyCommand;
 import me.mariozgr8.supercore.commands.core.GodCommand;
 import me.mariozgr8.supercore.commands.core.HealCommand;
 import me.mariozgr8.supercore.commands.core.InvSeeCommand;
+import me.mariozgr8.supercore.commands.core.TpCommand;
+import me.mariozgr8.supercore.commands.core.TpHereCommand;
 import me.mariozgr8.supercore.commands.home.DelHomeCommand;
 import me.mariozgr8.supercore.commands.home.HomeCommand;
 import me.mariozgr8.supercore.commands.home.HomesCommand;
@@ -121,6 +123,8 @@ public class SuperCore extends JavaPlugin {
 		this.getCommand("feed").setExecutor(new FeedCommand(this));
 		this.getCommand("heal").setExecutor(new HealCommand(this));
 		this.getCommand("invsee").setExecutor(new InvSeeCommand(this));
+		this.getCommand("tp").setExecutor(new TpCommand(this));
+		this.getCommand("tphere").setExecutor(new TpHereCommand(this));
 		
 		//Statistics Commands
 		this.getCommand("statistics").setExecutor(new StatsCommand(this));
