@@ -82,6 +82,45 @@ public class SettingsManager {
 		
 	}
 	public void updateMessageConfig() {
+		if(messageConfig.get("messages.prefix") == null) {
+			messageConfig.set("messages.prefix", "&bSC: ");
+		}
+		if(messageConfig.get("messages.player-only") == null) {
+			messageConfig.set("messages.player-only", "&cThis command can only be executed by a player !");
+		}
+		if(messageConfig.get("messages.wrong-args") == null) {
+			messageConfig.set("messages.wrong-args", "&cWrong Argument ! Please refer to /help for more information !");
+		}
+		if(messageConfig.get("messages.no-permission") == null) {
+			messageConfig.set("messages.no-permission", "&4You don't have enought pemrmission to perform this command !");
+		}
+		if(messageConfig.get("messages.player-not-found") == null) {
+			messageConfig.set("messages.player-not-found", "&cCannot find the player online !");
+		}
+		if(messageConfig.get("messages.no-permission-lore") == null) {
+			messageConfig.set("messages.no=permission-lore", "&cNo Permission");
+		}
+		if(messageConfig.get("messages.player-not-found-offline") == null) {
+			messageConfig.set("messages.player-not-found-offline", "&cPlayer has never played on the server !");
+		}
+		if(messageConfig.get("messages.fly-enabled") == null) {
+			messageConfig.set("messages.fly-enabled", "&6Fly &aEnabled &6for %player%");
+		}
+		if(messageConfig.get("messages.fly-disabled") == null) {
+			messageConfig.set("messages.fly-disabled", "&6Fly &4Disabled &6for %player%");
+		}
+        if(messageConfig.get("messages.god-enabled") == null) {
+            messageConfig.set("messages.god-enabled", "&6God &aEnabled &6for %player%");
+        }
+        if(messageConfig.get("messages.god-disabled") == null) {
+            messageConfig.set("messages.god-disabled", "&6God &aDisabled &6for %player%");
+        }
+        if(messageConfig.get("messages.healed") == null) {
+            messageConfig.set("messages.prefix", "&6You have been healed");
+        }
+        if(messageConfig.get("messages.fed") == null) {
+            messageConfig.set("messages.fed", "&6You have been fed");
+        }
 		if(messageConfig.get("messages.set-spawn") == null) {
 			messageConfig.set("messages.set-spawn", "&6Spawn has been set to your current location !");
 		}

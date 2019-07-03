@@ -65,7 +65,7 @@ commands:
     aliases: [shome]
   tp:
     usage: /tp [args]
-    descripion: Teleport to a player's location
+    description: Teleport to a player's location
     aliases: [stp]
   tphere:
     usahe: /tphere [args]

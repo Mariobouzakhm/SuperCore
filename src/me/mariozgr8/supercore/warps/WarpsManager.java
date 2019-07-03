@@ -153,7 +153,7 @@ public class WarpsManager {
 		
 		int i = (0 +((page-1) * maxSize));
 		int maxCapacity = (page*maxSize) -1;
-		int maxPage = (warps.size() / maxCapacity) + 1;
+		int maxPage = (warps.size() / maxSize) + 1;
 		try {
 			while(i<=maxCapacity) {
 				inv.setItem(currentPlaceInInv, getWarpIcon(warps.get(i), p));
